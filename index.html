@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Scheduler</title>
+    <!-- <link rel="icon" href="favicon.png"> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <header class="header" id="top">
+        <nav>
+            
+
+            <div class="brand-box">
+                <a class="brand" href="#project">What's this Project?</a>
+            </div>
+
+            <div class="text-box">
+                <h1 class="heading-primary">
+                    <br>
+                    <span class="heading-primary-main">OS CPU Scheduling Visualizer</span>
+                </div>
+	    </nav>
+    </header>
+        <main>
+            <div class="container-algo sche">
+                <form id="algorithms-form">
+                    <label for="algo"><h3>Algorithms:</h3></label>
+                    <select name="algo" id="algo">
+                        <option value="fcfs">First Come First Serve (FCFS)</option>
+                        <option value="sjf">Shortest Job First (SJF)</option>
+                        <option value="ljf">Longest Job First (LJF)</option>
+                        <option value="srtf">Shortest Remaining Job First (SRTF)</option>
+                        <option value="lrtf">Longest Remaining Job First (LRTF)</option>
+                        <option value="rr">Round Robin</option>
+                        <option value="pnp">Priority (Non Preemptive)</option>
+                        <option value="pp">Priority (Preemptive)</option>
+                        <option value="hrrn">Highest Response Ratio Next (HRRN)</option>
+                    </select>
+                </form>
+                <br>
+                <li class="head">
+                    Priority 1 is:
+                    <button id="priority-toggle-btn">
+                        <span id="priority-preference">High</span>
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </li>
+            </div>
+            <br>
+        <br>
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="process-id">Process ID</th>
+                    <th class="priority hide">Priority</th>
+                    <th class="arrival-time">Arrival Time</th>
+                    <th class="process-time" colspan="1">Process Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="process-id" rowspan="2">P1</td>
+                    <td class="priority hide" rowspan="2"><input type="number" min="1" step="1" value="1"></td>
+                    <td class="arrival-time" rowspan="2"><input type="number" min="0" step="1" value="0"> </td>
+                    <td class="process-time cpu process-heading" colspan="">CPU</td>
+                    <td class="process-btn"><button type="button" class="add-process-btn">+</button></td>
+                    <td class="process-btn"><button type="button" class="remove-process-btn">-</button></td>
+                </tr>
+                <tr>
+                    <td class="process-time cpu process-input"><input type="number" min="1" step="1" value="1"> </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button type="button" class="add-btn generate-button" role="button">Add Process</button>
+        <button type="button" class="remove-btn generate-button" role="button">Remove Process</button>
+        <!-- <button type="button" class="add-btn">Add Process</button>
+        <button type="button" class="remove-btn">Delete Process</button> -->
+        
+        <div id="context-switch-div">
+            <br>
+            <label for="context-switch" class="head"><h1>Context Switch Time : </h1></label>
+            <center><input type="number" name="Context Switch" id="context-switch" class="head" min="0" step="1" value="0"></center>
+        </div>
+        <div id="time-quantum" class="hide">
+            <br>
+            <label for="tq" class="head">Time Quantum : </label>
+            <center><input type="number" name="Time Quantum" id="tq" class="head" min="1" step="1" value="1"></center>
+        </div>
+        <br>
+        <button type="button" id="calculate" class="generate-button" role="button">Calculate</button>
+        <button type="button" id="reset" class="generate-button" role="button" onClick="window.location.reload();">Reset</button>
+        <br>
+        <div id="output" class="head"><em>Output</em> will be shown below.</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="script/main.js"></script>
+        </main>
+
+        
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer>
+
+                <div class="about">
+                    <h1 id="project">
+                        What's this <em>Project</em>?
+                    </h1>
+                    <hr class="styling">
+                    <br>
+                </div>
+                <div class="detailing">
+                    <p>The <strong>OS CPU Scheduling Algortihms Visualizer</strong> is an interactive tool designed to help users understand and visualize various CPU scheduling algorithms used in operating systems. These algorithms manage the execution of processes by determining the order in which they access the CPU, which is crucial for optimizing performance and resource utilization.</p>
+                        <br>
+                        
+                        <i><b>Highlighted features:</b></i>
+            
+                        <ul class="b">
+                            <li><b>User Input Interface</b>: The interface offers fields for process ID, arrival time, and burst time, accommodating multiple processes efficiently, thus enabling seamless input management.                        </li>
+                            <li><b>Final Table</b>: Presenting a comprehensive breakdown, the final table meticulously showcases arrival time, burst time, completion time, turnaround time, and waiting time for each process, ensuring a thorough analysis of scheduling outcomes.                        </li>
+                            <li><b>Gantt Chart</b>: With clarity and precision, the Gantt chart visually articulates the sequence of process executions, providing an intuitive understanding of system operation over time.</li>
+                            <li><b>Timeline Chart</b>: Through a graphical representation, the timeline chart vividly illustrates the scheduling period, delineating active processing periods and idle intervals, facilitating insightful observation of system behavior.                        </li>
+                            <li><b>Time Log</b>: Offering detailed insight into process execution, the time log provides a visual representation of each process's activity, enhancing comprehension of system dynamics and performance.                        </li>
+                        </ul>   
+                        <br>
+                        
+                        <i>*For optimal visualization, please use this on a large screen.</i>
+                    </p>
+                </div>
+
+    
+    <div class="footer-distributed">
+                <div class="footer-left">
+    
+                    <p class="footer-links">
+                        <a class="link-1" href="#top">Home</a>
+    
+                        <a href="https://github.com/theayushsonkar">GitHub</a>
+    
+                        <a href="https://www.linkedin.com/in/theayushsonkar/">LinkedIn</a>
+
+                    </p>
+    
+                    <p>Ayush Sonkar &copy; 2023</p>
+                </div>
+    </div>
+    
+            </footer>
+
+</body>
+
+</html>
