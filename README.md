@@ -1,5 +1,5 @@
 
-# Sorting Visualizer
+# OS CPU Scheduling Algorithm Visualizer
 
 The OS CPU Scheduling Algortihms Visualizer is an interactive tool designed to help users understand and visualize various CPU scheduling algorithms used in operating systems. These algorithms manage the execution of processes by determining the order in which they access the CPU, which is crucial for optimizing performance and resource utilization.
 
